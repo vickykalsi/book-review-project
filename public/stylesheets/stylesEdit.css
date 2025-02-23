@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)), url(../images/image.jpg);
+  background-size: cover;
+  color: #F8F3D9;
+}
+
+button{
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #F8F3D9;
+  color: #504B38;
+  font-weight: bold;
+}
+
+form {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+input{
+  background-color: #F8F3D9;
+}
+
+label{
+  font-size: 2rem;
+}
+
+.signika {
+  font-family: "Signika", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+}
+

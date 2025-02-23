@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Books Project</title>
+  <link rel="shortcut icon" href="images/books.svg" type="image/x-icon">
+  <link rel="stylesheet" href="stylesheets/stylesHome.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Signika:wght@300..700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="iceberg">Books reviewd by me!</h1>
+  <div class="grid-container">
+    <form action="/new-book" method="post">
+      <div class="form-flex-container">
+        <div>
+          <label class="signika" for="title">Title : </label>
+          <input class="signika" type="text" id="title" placeholder="enter book title" name="title">
+        </div>
+        <div>
+          <label class="signika" for="author">Author : </label>
+          <input class="signika" type="text" id="author" placeholder="enter book author" name="author">
+        </div>
+        <div>
+          <label class="signika" for="rating">Rating : </label>
+          <input class="signika" type="text" id="rating" placeholder="enter book rating" name="rating">
+        </div>
+        <div>
+          <label class="signika" for="date">Review Date : </label>
+          <input class="signika" type="date" id="date" name="date">
+        </div>
+        <button class="iceberg" type="submit">Submit review</button>
+      </div>
+    </form>
+    <div class="inner-flex-container">
+      <form action="/" method="post" id="drop-down">
+        <label class="signika" for="sortBy">Sort books by : </label>
+        <select class="signika" name="sortBy" id="sortBy">
+          <option value="title">title</option>
+          <option value="rating">rating</option>
+          <option value="author">author</option>
+          <option value="reviewed_date">date</option>
+        </select>
+        <button class="iceberg">Submit</button>
+      </form>
+      <% if(books.length>0) { %>
+        <% for(let i of books) {%>
+          <div>
+            <h2 class="iceberg" style="color: #504B38;">
+              <%= i.title %>
+            </h2>
+            <p class="signika">by</p>
+            <h2 class="iceberg" style="color: #504B38;">
+              <%= i.author %>
+            </h2>
+            <h3 class="signika">My rating : <%= i.rating %>
+            </h3>
+            <h3 class="signika">Reviewed on : <%= i.reviewed_date %>
+            </h3>
+            <form method="post">
+              <input type="hidden" name="id" value="<%= i.id %>">
+              <button class="iceberg" type="submit" formaction="/edit-review">Edit your review</button>
+              <button class="iceberg" type="submit" formaction="/delete-review">Delete your review</button>
+            </form>
+          </div>
+          <% } %>
+            <% } else {%>
+              <h2 class="signika" style="text-align: center;">Your reviews would be displayed here once you start
+                submitting them , in the order of review submitted. However you can also sort them as per above drop down
+              </h2>
+              <% } %>
+    </div>
+  </div>
+</body>
+
+</html>
